@@ -6,6 +6,7 @@ class Index extends React.Component {
 
   componentDidMount() {
     console.log('Index Four - didMount lifecycle')
+    return ;
   }
   
   shouldComponentUpdate() {

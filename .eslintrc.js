@@ -18,8 +18,9 @@ module.exports = {
     },
     "plugins": [
         "react",
-        "@typescript-eslint"
+        "@typescript-eslint",
     ],
     "rules": {
+        "@typescript-eslint/explicit-function-return-type": "off"
     }
 };
