@@ -1,36 +1,98 @@
-import React, {useEffect, useState} from 'react'
+import React from 'react'
 import logo from '../logo.svg';
 
-const Index = () => {
-  const [loading, setLoading] = useState(true);
+class Index extends React.Component {
 
-  useEffect(() => {
-    console.log('render page three!')
-    setLoading(false)
+  componentDidMount() {
+    console.log('Index Three - didMount lifecycle')
+  }
+  
+  shouldComponentUpdate() {
+    console.log('Index Three - shouldComponentUpdate lifecycle');
 
-  }, [])
+    return false;
+  }
 
-  return (
-    <div style={{display:'flex', justifyContent:'center', alignItems:'center', flexDirection:"column", height:'100%'}}>
-      {loading ? <div>Loading</div> : 
-        <>
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            This is Page 3
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </>
-      }
-    </div>
-  );
+  render() {
+    console.log('Index Three - Render lifecycle');
+
+    return  (
+    <div style={{display:'flex', justifyContent:'center', alignItems:'center', flexDirection:"column"}}>
+        <img src={logo} className="App-logo" alt="logo" />
+        <p>
+          This is Page 1
+        </p>
+        <a
+          className="App-link"
+          href="https://reactjs.org"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Learn React
+        </a>
+        <img src={logo} className="App-logo" alt="logo" />
+        <p>
+          This is Page 1.a
+        </p>
+        <a
+          className="App-link"
+          href="https://reactjs.org"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Learn React
+        </a>
+        <img src={logo} className="App-logo" alt="logo" />
+        <p>
+          This is Page 1.b
+        </p>
+        <a
+          className="App-link"
+          href="https://reactjs.org"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Learn React
+        </a>
+        <img src={logo} className="App-logo" alt="logo" />
+        <p>
+          This is Page 1.c
+        </p>
+        <a
+          className="App-link"
+          href="https://reactjs.org"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Learn React
+        </a>
+        <img src={logo} className="App-logo" alt="logo" />
+        <p>
+          This is Page 1.d
+        </p>
+        <a
+          className="App-link"
+          href="https://reactjs.org"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Learn React
+        </a>
+        <img src={logo} className="App-logo" alt="logo" />
+        <p>
+          This is Page 1.e
+        </p>
+        <a
+          className="App-link"
+          href="https://reactjs.org"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Learn React
+        </a>
+    
+    </div>)
+  }
 }
 
-
-export default (Index);
+export default Index;

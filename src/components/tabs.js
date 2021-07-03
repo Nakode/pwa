@@ -1,41 +1,50 @@
-import React from 'react';
+import React, {Suspense} from 'react';
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import 'react-tabs/style/react-tabs.css';
 
-import PageOne from './pageOne';
-import PageTwo from './pageTwo';
-import PageThree from './pageThree';
-import PageFour from './pageFour';
+const LazyPageOne = React.lazy(() => import('./pageOne'));
+const LazyPageTwo = React.lazy(() => import('./pageTwo'));
+const LazyPageThree = React.lazy(() => import('./pageThree'));
+const LazyPageFour = React.lazy(() => import('./pageFour'));
+
 
 const Index = () => (
   <Tabs style={{height:'100vh'}}>
    
-    <TabPanel style={{height:'90vh'}}>
-      <PageOne/>
+    <TabPanel style={{height:'90vh', overflow:'auto'}}>
+      <Suspense fallback={<div>Loading...</div>}>
+        <LazyPageOne/>
+      </Suspense>
     </TabPanel>
 
-    <TabPanel style={{height:'90vh'}}>
-      <PageTwo/>
+    <TabPanel style={{height:'90vh', overflow:'auto'}}>
+      <Suspense fallback={<div>Loading...</div>}>
+        <LazyPageTwo/>
+      </Suspense>
     </TabPanel>
 
-    <TabPanel style={{height:'90vh'}}>
-      <PageThree/>
+    <TabPanel style={{height:'90vh', overflow:'auto'}}>
+      <Suspense fallback={<div>Loading...</div>}>
+        <LazyPageThree/>
+      </Suspense>
     </TabPanel>
 
-    <TabPanel style={{height:'90vh'}}>
-      <PageFour/>
+    <TabPanel style={{height:'90vh', overflow:'auto'}}>
+      <Suspense fallback={<div>Loading...</div>}>
+        <LazyPageFour/>
+      </Suspense>
     </TabPanel>
 
 
-    <TabList style={{
-      height:'10vh', border: '1px solid white', position:'absolute', bottom: 0, 
+    <TabList className="tab-container" style={{
+      height:' 10vh', border: '1px solid white', position: 'fixed', bottom: 0, 
       left:0 , right:0, margin: 0, display:'flex', justifyContent:'space-evenly', 
-      backgroundColor:'white',
-      alignItems:'center'}}>
-      <Tab style={{border:'1px solid white', borderRadius: 0, color:'black'}}>Home</Tab>
-      <Tab style={{border:'1px solid white', borderRadius: 0, color:'black'}}>Inbox</Tab>
-      <Tab style={{border:'1px solid white', borderRadius: 0, color:'black'}}>Chat</Tab>
-      <Tab style={{border:'1px solid white', borderRadius: 0, color:'black'}}>Settings</Tab>
+      padding: 0, backgroundColor:'white',
+      alignItems:'flex-start'}}>
+      <Tab className="tab-item">Home</Tab>
+      <Tab className="tab-item">Inbox</Tab>
+      <Tab className="tab-item">Messages</Tab>
+      <Tab className="tab-item">Account</Tab>
     </TabList>
 
   </Tabs>
