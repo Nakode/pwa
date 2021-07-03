@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/explicit-module-boundary-types */
 import React from 'react'
 import logo from '../logo.svg';
 
@@ -6,6 +7,7 @@ class Index extends React.Component {
 
   componentDidMount() {
     console.log('Index Two - didMount lifecycle')
+    return;
   }
   
   shouldComponentUpdate() {

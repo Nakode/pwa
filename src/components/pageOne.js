@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/explicit-module-boundary-types */
 import React from 'react'
 import logo from '../assets/town.jpg';
 
@@ -33,7 +34,7 @@ class Index extends React.Component {
     console.log('Index One - didMount lifecycle')
   }
   
-  shouldComponentUpdate(nextProps, nextState) {
+  shouldComponentUpdate() {
     console.log('Index One - shouldComponentUpdate lifecycle');
 
     return false;
